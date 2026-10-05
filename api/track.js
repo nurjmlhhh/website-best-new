@@ -1,7 +1,7 @@
 
 
-export default async function handler(req, res) {
-  const allowed = ["https://bestranspor.com", "https://www.bestranspor.com"];
+module.exports = async function handler(req, res) {
+    const allowed = ["https://bestranspor.com", "https://www.bestranspor.com"];
   const origin = req.headers.origin;
   if (allowed.includes(origin)) res.setHeader("Access-Control-Allow-Origin", origin);
   res.setHeader("Vary", "Origin");
@@ -28,4 +28,4 @@ export default async function handler(req, res) {
   } catch (e) {
     return res.status(502).json({ error: "Gagal terhubung ke API pusat" });
   }
-}
+};
